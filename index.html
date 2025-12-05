@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Task Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container glass">
+        <header class="app-header">
+            <div class="logo">
+                <span class="material-icons-round">task_alt</span>
+                <h1>Task Tracker</h1>
+            </div>
+            <button id="theme-toggle" class="icon-btn glass-btn" aria-label="Toggle Theme">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </header>
+
+        <main class="main-content">
+            <section class="calendar-section glass-panel">
+                <div class="calendar-header">
+                    <button id="prev-month" class="icon-btn small"><span
+                            class="material-icons-round">chevron_left</span></button>
+                    <h2 id="current-month-year">December 2025</h2>
+                    <button id="next-month" class="icon-btn small"><span
+                            class="material-icons-round">chevron_right</span></button>
+                </div>
+                <div class="calendar-grid-header">
+                    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                </div>
+                <div id="calendar-grid" class="calendar-grid">
+                    <!-- Calendar days injected by JS -->
+                </div>
+            </section>
+
+            <section class="tasks-section glass-panel">
+                <div class="tasks-header">
+                    <div class="date-display">
+                        <span id="selected-date-display">Select a date</span>
+                        <span id="task-count" class="subtitle">0 Tasks</span>
+                    </div>
+                    <button id="add-task-btn" class="primary-btn">
+                        <span class="material-icons-round">add</span> New
+                    </button>
+                </div>
+                <div id="tasks-list" class="tasks-list">
+                    <!-- Tasks injected by JS -->
+                    <div class="empty-state">
+                        <span class="material-icons-round">event_note</span>
+                        <p>No tasks for this day</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h2>Add New Task</h2>
+                <button id="close-modal" class="icon-btn"><span class="material-icons-round">close</span></button>
+            </div>
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="task-title">Title</label>
+                    <input type="text" id="task-title" required placeholder="What needs to be done?">
+                </div>
+                <div class="form-group">
+                    <label for="task-desc">Description (Optional)</label>
+                    <textarea id="task-desc" rows="3" placeholder="Add details..."></textarea>
+                </div>
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Category</label>
+                        <div class="color-options">
+                            <input type="radio" name="task-color" value="blue" id="color-blue" checked>
+                            <label for="color-blue" class="color-circle blue"></label>
+
+                            <input type="radio" name="task-color" value="purple" id="color-purple">
+                            <label for="color-purple" class="color-circle purple"></label>
+
+                            <input type="radio" name="task-color" value="pink" id="color-pink">
+                            <label for="color-pink" class="color-circle pink"></label>
+
+                            <input type="radio" name="task-color" value="green" id="color-green">
+                            <label for="color-green" class="color-circle green"></label>
+
+                            <input type="radio" name="task-color" value="orange" id="color-orange">
+                            <label for="color-orange" class="color-circle orange"></label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="primary-btn match-width">Save Task</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
